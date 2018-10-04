@@ -1,0 +1,45 @@
+//Etapa 1
+import profesionales.*
+import empresaDeServicios.*
+
+
+test "Etapa1"{
+	
+	const juana = new ProfesionalVinculado()
+	const melina = new ProfesionalAsociado()
+	const rocio = new ProfesionalLibre()
+	const luciana = new ProfesionalLibre()
+	
+	juana.setUniversidad("Universidad de Rosario")
+	
+	melina.setUniversidad("Universidad de Corrientes")
+	
+	rocio.setUniversidad("Universidad de Hurlingham")
+	rocio.setHonorariosPorHora(5200)
+	rocio.setProvincias("Santa Fe")
+	rocio.setProvincias("Cordoba")
+	rocio.setProvincias("Buenos Aires")
+	
+	luciana.setUniversidad("Universidad de Rosario")
+	luciana.setHonorariosPorHora(3200)
+	luciana.setProvincias("Sante Fe")
+	luciana.setProvincias("Entre Rios")
+	
+	const empresa = new EmpresaDeServicios()
+	
+	empresa.agregarProfesional(juana)
+	empresa.agregarProfesional(melina)
+	empresa.agregarProfesional(rocio)
+	empresa.agregarProfesional(luciana)
+	empresa.setHonorariosReferencia(3500)
+	
+	assert.equals("Universidad de Rosario", juana.universidad())
+	assert.equals([rocio], empresa.profesionalMasCaro())
+	assert.equals(#{"Universidad de Rosario", "Universidad de Corrientes", "Universidad de Hurlingham"}, empresa.universidadesFormadoras())
+	assert.equals(juana, empresa.profesionalMasBarato())
+	
+	assert.equals(2, empresa.profesionalEstudioEn("Universidad de Rosario"))
+	assert.equals(1, empresa.profesionalEstudioEn("Universidad de Hurlingham"))
+	assert.equals(0, empresa.profesionalEstudioEn("Universidad de San Martin"))
+	
+}
