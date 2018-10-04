@@ -37,7 +37,6 @@ test "Etapa1"{
 	assert.equals([rocio], empresa.profesionalMasCaro())
 	assert.equals(#{"Universidad de Rosario", "Universidad de Corrientes", "Universidad de Hurlingham"}, empresa.universidadesFormadoras())
 	assert.equals(juana, empresa.profesionalMasBarato())
-	
 	assert.equals(2, empresa.profesionalEstudioEn("Universidad de Rosario"))
 	assert.equals(1, empresa.profesionalEstudioEn("Universidad de Hurlingham"))
 	assert.equals(0, empresa.profesionalEstudioEn("Universidad de San Martin"))

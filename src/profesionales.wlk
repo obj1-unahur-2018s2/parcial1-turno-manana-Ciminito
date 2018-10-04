@@ -14,6 +14,10 @@ class ProfesionalAsociado {
 	
 	method provinciasDondePuedeTrabajar() { return #{"Entre Ríos", "Corrientes", "Santa Fe"} 		
 		}
+		
+	method cobrar(){
+		
+	}
 }
 
 class ProfesionalVinculado {
@@ -21,6 +25,7 @@ class ProfesionalVinculado {
 	var honorarios = 0
 	var dondeEsta
 	var honorarioUniversidad = 0
+	var donaciones= 0
 	
 	method setUniversidad(univ) { universidad = univ }
 	method universidad() { return universidad }
@@ -33,6 +38,10 @@ class ProfesionalVinculado {
 	method honorariosPorHora() {return honorarios}
 	
 	method provinciasDondePuedeTrabajar() {return dondeEsta}
+	
+	method cobrar(){
+		donaciones += (honorarioUniversidad/2)
+	}
 	
 }
 class ProfesionalLibre {
@@ -54,8 +63,17 @@ class ProfesionalLibre {
 	
 	method setProvincias(provincias) {dondePuedeTrabajar.add(provincias)}
 	method provinciasDondePuedeTrabajar() {return dondePuedeTrabajar}
+	
+	method cobrar(){
+		
+		
+	}
 }
 
+object profesionalesDelLitoral{
+	var donaciones= []
+	
+}
 
 
 

@@ -26,15 +26,42 @@ class EmpresaDeServicios {
 	method profesionalMasBarato(){
 		return profesional.min({prof => prof.honorariosPorHora()})
 	}
-	method provinciaCubierta(){
-		return profesional.flatMap({prof => prof.provinciasDondePuedeTrabajar()})
 	
-	}
+	/*method provinciaCubierta(){
+	return profesional.flatMap({prof => prof.provinciasDondePuedeTrabajar()})}*/
 	method profesionalEstudioEn(universidad){
 		return profesional.filter({prof => prof.universidad() == universidad}).size()
-		
-		
 	}	
+	
+	method cobrarAProfesionales(){
+		profesional.all({prof => prof.cobrar()})
+	}
+}
+
+//Etapa 3
+
+
+
+class Persona{
+	var provincia
+	
+	method setProvincia(prov) {provincia = prov}
+	method provincia() {return provincia}
+	
+	method puedeSerAtentida() {
+	}
+}
+
+class Institucion{
+	var listaUniversidadesReconocidas=[]
+	
+	method setUniversidadesReconocidas(univ) {
+		listaUniversidadesReconocidas.add(univ)
+	}
+	method universidadesReconocidas() {return listaUniversidadesReconocidas}
+	
+	method puedeSerAtendida(){
+		
 		
 	}
 }
